@@ -24,5 +24,4 @@ public class HomePageController extends BaseController {
         return homeCommon;
     }
 
-
 }
