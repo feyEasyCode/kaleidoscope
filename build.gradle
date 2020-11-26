@@ -35,8 +35,9 @@ repositories {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web','org.apache.commons:commons-lang3:3.5')
+	compile('org.springframework.boot:spring-boot-starter-web')
 	//	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	compile('org.apache.commons:commons-lang3:3.5')
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly 'org.projectlombok:lombok:1.18.16'
