@@ -1,5 +1,6 @@
 package com.codingTool.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -10,6 +11,7 @@ import java.util.Date;
  * 此类主要是针对常用时间转换代码的案例实现，及编码演示
  * 仅供参考或借鉴
  */
+@Slf4j
 @RestController
 @RequestMapping("/date")
 public class DateUtilsController extends BaseController {
@@ -56,4 +58,6 @@ public class DateUtilsController extends BaseController {
             return currentTime;
         }
     }
+
+
 }
