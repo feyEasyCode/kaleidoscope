@@ -13,51 +13,30 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @description:
+ * @description: config json
  * @author: uaike
- * @create: 2020-12-04
+ * @create: 2020-12-07
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class Customer {
+@Table(name = "configcontent")
+public class ConfigContent {
 
     @TableId(type = IdType.AUTO)//mybatis-plus主键注解
     @IsAutoIncrement   //自增
     @IsKey             //actable主键注解
-    @Column(comment = "用户ID")//对应数据库字段，不配置name会直接采用属性名作为字段名comment是注解
+    @Column(comment = "message id")//对应数据库字段，不配置name会直接采用属性名作为字段名comment是注解
     private Long id;
 
-    @Column(comment = "用户USER ID")
-    private String userId;
+    @Column(comment = "message key")
+    private String code;
 
-    @Column(comment = "昵称")
-    private String name;
+    @Column(comment = "message value")
+    private String value;
 
-    @Column(comment = "用户密码")
-    private String passWord;
-
-    @Column(comment = "手机号")
-    private String mobile;
-
-    @Column(comment = "邮箱")
-    private String email;
-
-    @Column(comment = "地址")
-    private String adress;
-
-    @Column(comment = "性别")
-    private String gender;
-
-    @Column(comment = "用户头像")
-    private String headImg;
-
-    @Column(comment = "用户类型")
-    private String userType;
-
-    @Column(comment = "账号状态")
-    private String userStatus;
+    @Column(comment = "message status")
+    private String status;
 
     @Column(comment = "创建时间")
     private Date createTime;
