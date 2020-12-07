@@ -4,12 +4,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.codingTool.entity.Tools;
 
 /**
- * @description:
+ * @description: query tools info
  * @author: uaike
  * @create: 2020-12-02
  */
 public interface ToolsMapper extends BaseMapper<Tools> {
-
-
 
 }
