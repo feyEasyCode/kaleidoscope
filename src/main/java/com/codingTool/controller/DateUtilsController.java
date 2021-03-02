@@ -1,10 +1,13 @@
 package com.codingTool.controller;
 
+import com.codingTool.DTO.date.DateRequestDTO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -57,6 +60,40 @@ public class DateUtilsController extends BaseController {
             long currentTime = date.getTime();
             return currentTime;
         }
+    }
+
+    /**
+     * 当前时间往前或者往后推几日
+     * dateParam：传入原始时间
+     * days ：3 后三天；-3 前三天
+     * hour：指定小时
+     * minute：指定分钟
+     * second：指定秒
+     * @param requestDTO
+     * @return
+     */
+    @PostMapping("/customDate")
+    private String customDate(@RequestBody DateRequestDTO requestDTO) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        if (StringUtils.isNotEmpty(requestDTO.getDateParam())){
+           date = format.parse(requestDTO.getDateParam());
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        Integer days = requestDTO.getDays();
+        cal.add(Calendar.DATE,days);
+        if (null != requestDTO.getHour()){
+            cal.set(Calendar.HOUR_OF_DAY,requestDTO.getHour());
+        }
+        if (null != requestDTO.getMinute()){
+            cal.set(Calendar.MINUTE,requestDTO.getMinute());
+        }
+        if (null != requestDTO.getSecond()){
+            cal.set(Calendar.SECOND,requestDTO.getSecond());
+        }
+        String afterDate = format.format(cal.getTime());
+        return afterDate;
     }
 
 
