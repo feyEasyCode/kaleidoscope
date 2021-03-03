@@ -1,13 +1,13 @@
 package com.codingTool.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.codingTool.entity.Customer;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @description: query user info
  * @author: uaike
  * @create: 2020-12-07
  */
-public interface UserMapper extends BaseMapper <Customer> {
+@Mapper
+public interface UserMapper {
 
 }

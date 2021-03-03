@@ -5,18 +5,16 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * @description:
- * @author: zhangzhaofei
+ * @author: uaike
  * @create: 2020-12-03
  */
 @Configuration
-@ComponentScan(basePackages = {"com.gitee.sunchenbin.mybatis.actable.manager.*"})
 public class DataSourceConfig {
 
     @Value("${spring.datasource.driver-class-name}")
@@ -30,6 +28,10 @@ public class DataSourceConfig {
 
     @Value("${spring.datasource.password}")
     private String password;
+
+    @Value("${mybatis.mapper-locations}")
+    private String mapperLocation;
+
 
     @Bean
     public PropertiesFactoryBean configProperties() throws Exception{
@@ -60,13 +62,24 @@ public class DataSourceConfig {
         return dataSourceTransactionManager;
     }
 
-    @Bean
+    /*@Bean
     public SqlSessionFactoryBean sqlSessionFactory() throws Exception{
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml"));
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.codingTool.entity.*");
+        Resource[] resources1 = resolver.getResources(mapperLocation);
+        *//*Resource[] resources2 = resolver.getResources(commonMapperLocation);
+        Resource[] resources = new Resource[resources1.length+resources2.length];
+        for (int i=0;i<resources1.length;i++) {
+            resources[i] = resources1[i];
+        }
+        int initSize = resources1.length;
+        for (int i=0;i<resources2.length;i++) {
+            resources[initSize+i] = resources2[i];
+        }*//*
+        sqlSessionFactoryBean.setMapperLocations(resources1);
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.codingTool.entity");
         return sqlSessionFactoryBean;
-    }
+    }*/
+
 }
