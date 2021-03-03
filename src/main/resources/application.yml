@@ -13,7 +13,7 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 mybatis:
-  mapper-locations:  classpath:mapper/*Mapper.xml
+  mapper-locations:  classpath*:mapper/*Mapper.xml,classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml
   type-aliases-package: com.codingTool.entity
   table:
     auto: update
