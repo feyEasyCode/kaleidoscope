@@ -1,13 +1,13 @@
 package com.codingTool.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.codingTool.entity.ConfigContent;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @description:
- * @author: zhangzhaofei
+ * @author: uaiek
  * @create: 2020-12-07
  */
-public interface ConfigContentMapper extends BaseMapper<ConfigContent> {
+@Mapper
+public interface ConfigContentMapper {
 
 }

@@ -13,6 +13,8 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 mybatis:
+  mapper-locations:  classpath*:mapper/*Mapper.xml,classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml
+  type-aliases-package: com.codingTool.entity
   table:
     auto: update
     #create	    系统启动后，会将所有的表删除掉，然后根据model中配置的结构重新建表，该操作会破坏原有数据。
@@ -23,13 +25,12 @@ mybatis:
     pack: com.codingTool.entity #扫描用于创建表的对象的包名，多个包用“,”隔开
   database:
     type: mysql #数据库类型 目前只支持mysql
-mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: true
-    auto-mapping-behavior: full
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:mapper/**/*Mapper.xml
-  global-config:
-    db-config:
-      logic-not-delete-value: 1
-      logic-delete-value: 0
+
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/*Mapper.xml
+#  global-config:
+#    db-config:
+#      ###逻辑未删除的值
+#      logic-not-delete-value: 0
+#      ###逻辑已删除的值
+#      logic-delete-value: 1

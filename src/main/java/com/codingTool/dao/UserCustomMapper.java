@@ -3,11 +3,11 @@ package com.codingTool.dao;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @description: query user info
+ * @description:
  * @author: uaike
- * @create: 2020-12-07
+ * @create: 2021-03-02
  */
 @Mapper
-public interface UserMapper {
+public interface UserCustomMapper {
 
 }
