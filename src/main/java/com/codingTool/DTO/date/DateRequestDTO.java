@@ -12,14 +12,19 @@ import java.util.Calendar;
 @Data
 public class DateRequestDTO {
 
+    //时间入参
     private String dateParam;
 
+    //天数
     private Integer days;
 
+    //小时
     private Integer hour;
 
+    //分
     private Integer minute;
 
+    //秒
     private Integer second;
 
 }
