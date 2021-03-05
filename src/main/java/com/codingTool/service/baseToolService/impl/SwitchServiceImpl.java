@@ -25,11 +25,11 @@ public class SwitchServiceImpl implements SwitchService {
             Date startTimeDate = format.parse(startTime);
             Date endTimeDate = format.parse(endTime);
             Date nowDate = new Date();
-            if(!startTimeDate.before(nowDate)) {
+            if(startTimeDate.before(nowDate)) {
                 //开始时间 在 当前时间之前 返回-1
                 return -1;
             }
-            if(!endTimeDate.after(nowDate)) {
+            if(endTimeDate.after(nowDate)) {
                 //结束时间 在 当前时间之后 1
                 return 1;
             }
